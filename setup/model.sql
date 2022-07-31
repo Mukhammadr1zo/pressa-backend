@@ -15,7 +15,7 @@ create table admins(
     password varchar(60) not null
 );
 
-insert into admins(username, password) values ('Muhammadrizo', '7397')
+insert into admins(username, password) values ('Muhammadrizo', crypt('7397', gen_salt('bf')));
 insert into admins(username, password) values ('Bobir', crypt('1122', gen_salt('bf')));
 
 create table categories(
@@ -23,7 +23,7 @@ create table categories(
     category_name varchar(64) not null
 );
 
-insert into categories(category_name) values ('IT'), ('Biznes')
+insert into categories(category_name) values ('IT'), ('Biznes');
 
 create table subCategories(
     subCategory_id serial primary key,
