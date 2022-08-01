@@ -10,7 +10,7 @@ const port = process.env.PORT
 const app = express();
 
 app.use(express.json());
-app.use(express.static(path.join(process.cwd(), "upload")));
+app.use(express.static(path.join(process.cwd(), 'src', 'uploads')));
 app.use(cors());
 
 app.use(authorization);
@@ -20,7 +20,7 @@ app.use('/', module)
 app.use(errorHandling);
 
 app.listen(port || 5000, () =>
-  console.log(`*${port}`)
+  console.log(`*${port|| 5000}`)
 );
 
 
