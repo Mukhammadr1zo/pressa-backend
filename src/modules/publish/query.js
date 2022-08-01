@@ -9,10 +9,14 @@ const PUT = `
     where publisher_id = $1 returning *
 `
 
+const GET = `
+select p.* from publishers as p where p.publisher_id = $1;
+`
+
 const DELETE = `
     update publishers
     set publisher_verify = 'cancelled'
     where publisher_id = $1 returning *
 `
 
-export default {CREATE, PUT, DELETE}
+export default {CREATE, PUT, DELETE, GET}

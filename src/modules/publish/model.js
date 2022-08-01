@@ -17,6 +17,14 @@ const PUT = async({ publishId }) => {
   }
 }
 
+const GET = async({ publishId }) => {
+  try {
+    return await db.fetchAll(query.GET, publishId);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 const DELETE = async({ publishId }) => {
   try {
     return await db.fetch(query.DELETE, publishId);
@@ -26,4 +34,4 @@ const DELETE = async({ publishId }) => {
 }
 
 
-export default { CREATE, PUT, DELETE };
+export default { CREATE, PUT, DELETE, GET };

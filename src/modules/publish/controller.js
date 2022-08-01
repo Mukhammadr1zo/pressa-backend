@@ -19,6 +19,24 @@ async function CREATE(req, res, next) {
     }
   }
 
+async function GET(req, res, next) {
+    try {
+      const publish = await model.GET(req.params);
+      console.log(publish);
+      if (publish) {
+        res.status(201).json({
+          status: 201,
+          message: " publish get",
+          data: publish,
+        });
+      } else {
+        next(NewError.unauthorized("Client Error"));
+      }
+    } catch (error) {
+      next(NewError.internal(error.message));
+    }
+  }
+
 async function PUT(req, res, next) {
     try {
       const publish = await model.PUT(req.params);
@@ -56,4 +74,4 @@ async function PUT(req, res, next) {
     }
   }
 
-export default {CREATE, PUT, DELETE};
+export default {CREATE, PUT, DELETE, GET};
