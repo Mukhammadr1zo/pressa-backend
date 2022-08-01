@@ -4,7 +4,6 @@ import model from "./model.js";
 async function CREATE(req, res, next) {
     try {
       const publish = await model.CREATE(req.body, req.file);
-      console.log(publish);
       if (publish) {
         res.status(201).json({
           status: 201,
